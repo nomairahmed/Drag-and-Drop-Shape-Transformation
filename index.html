@@ -33,7 +33,7 @@
     </head>
     <body>
         <div id="div1" class = "segment">
-            <div class="shape circle" draggable="true"></div>
+            <div class="shape circle" id="shape-1" draggable="true"></div>
         </div>
         <div id="div2" class = "segment">
         </div>
@@ -42,6 +42,32 @@
         <div id="div4" class = "segment">
         </div>
 
-    </body>
+        <script>
+            const circle = document.querySelector('.circle');
+            const segments = document.querySelectorAll('.segment');
+            circle.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text/plain', e.target.id);
+            });
 
+            segments.forEach(segment => {
+  
+                segment.addEventListener('dragover', (e) => {
+                    e.preventDefault(); 
+                });
+                segment.addEventListener('drop', (e) => {
+                    e.preventDefault();                 
+
+                    const draggedId = e.dataTransfer.getData('text/plain');
+                    const draggedElement = document.getElementById(draggedId);
+                    const dropZone = e.target.closest('.segment');
+                    
+                    if (dropZone && draggedElement) {
+                    // Move the element in the DOM
+                    dropZone.appendChild(draggedElement);
+                    
+                    }
+                });
+            });
+        </script>
+    </body>
 </html>
