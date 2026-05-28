@@ -34,6 +34,10 @@
     <body>
         <div id="div1" class = "segment">
             <div class="shape circle" id="shape-1" draggable="true"></div>
+            <div class="shape circle" id="shape-2" draggable="true"></div>
+            <div class="shape circle" id="shape-3" draggable="true"></div>
+            <div class="shape circle" id="shape-4" draggable="true"></div>
+            <div class="shape circle" id="shape-5" draggable="true"></div>
         </div>
         <div id="div2" class = "segment">
         </div>
@@ -62,9 +66,8 @@
                     const dropZone = e.target.closest('.segment');
                     
                     if (dropZone && draggedElement) {
-                    // Move the element in the DOM
-                    dropZone.appendChild(draggedElement);
-                    
+
+                        dropZone.appendChild(draggedElement);
                     }
                 });
             });
