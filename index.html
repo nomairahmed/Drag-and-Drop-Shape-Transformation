@@ -62,10 +62,10 @@
         </div>
 
         <script>
-            const circles = document.querySelectorAll('.circle');
+            const shapes = document.querySelectorAll('.shape');
             const segments = document.querySelectorAll('.segment');
-            circles.forEach(circle =>{
-                circle.addEventListener('dragstart', (e) => {
+            shapes.forEach(shape =>{
+                shape.addEventListener('dragstart', (e) => {
                     e.dataTransfer.setData('text/plain', e.target.id);
                 });
             });
